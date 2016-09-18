@@ -1,22 +1,13 @@
 # Analyzing FitBit Data
-Daniel Maurath  
-July, 2014  
+
 ###About
-This was the first project for the **Reproducible Research** course in Coursera's Data Science specialization track. The purpose of the project was to answer a series of questions using data collected from a [FitBit](http://en.wikipedia.org/wiki/Fitbit).
-
-
-##Synopsis
-The purpose of this project was to practice:
-
-* loading and preprocessing data
-* imputing missing values
-* interpreting data to answer research questions
+The purpose of the project was to answer a series of questions using data collected from a [FitBit](http://en.wikipedia.org/wiki/Fitbit).
 
 ## Data
 The data for this assignment was downloaded from the course web
 site:
 
-* Dataset: [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip) [52K]
+* Dataset: [Activity monitoring data]
 
 The variables included in this dataset are:
 
@@ -55,7 +46,7 @@ steps_by_day <- aggregate(steps ~ date, data, sum)
 hist(steps_by_day$steps, main = paste("Total Steps Each Day"), col="blue", xlab="Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-2](./Reproducible_Research_Project_1_Steps_files/figure-html/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-2](./Repro_Res_proj1/unnamed-chunk-2.png) 
 
 ```r
 rmean <- mean(steps_by_day$steps)
@@ -76,7 +67,7 @@ steps_by_interval <- aggregate(steps ~ interval, data, mean)
 plot(steps_by_interval$interval,steps_by_interval$steps, type="l", xlab="Interval", ylab="Number of Steps",main="Average Number of Steps per Day by Interval")
 ```
 
-![plot of chunk unnamed-chunk-3](./Reproducible_Research_Project_1_Steps_files/figure-html/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](./Repro_Res_proj1/figure-html/unnamed-chunk-3.png) 
 
 ```r
 max_interval <- steps_by_interval[which.max(steps_by_interval$steps),1]
@@ -110,7 +101,7 @@ hist(steps_by_day$steps, main = paste("Total Steps Each Day"), col="red", xlab="
 legend("topright", c("Imputed", "Non-imputed"), col=c("blue", "red"), lwd=10)
 ```
 
-![plot of chunk unnamed-chunk-6](./Reproducible_Research_Project_1_Steps_files/figure-html/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](./Repro_Res_proj1/figure-html/unnamed-chunk-6.png) 
 
 Calculate new mean and median for imputed data. 
 
@@ -153,4 +144,4 @@ library(lattice)
 xyplot(steps_by_interval_i$steps ~ steps_by_interval_i$interval|steps_by_interval_i$dow, main="Average Steps per Day by Interval",xlab="Interval", ylab="Steps",layout=c(1,2), type="l")
 ```
 
-![plot of chunk unnamed-chunk-10](./Reproducible_Research_Project_1_Steps_files/figure-html/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](./Repro_Res_proj1/figure-html/unnamed-chunk-10.png) 
